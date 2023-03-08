@@ -1,7 +1,7 @@
 FROM python:3
 WORKDIR /usr/src/app
 MAINTAINER Maria Jesús Alloza Rodríguez 'mariajesus.allozarodriguez@gmail.com'
-RUN apt-get insta git && pip install --root-user-action=ignore --upgrade pip && pip install --root-user-action=ignore django mysqlclient
+RUN apt-get install git && pip install --root-user-action=ignore --upgrade pip && pip install --root-user-action=ignore django mysqlclient
 ADD django_tutorial/ /usr/src/app
 ADD django_polls.sh /opt
 RUN mkdir statis && chmod +x /opt/django_polls.sh
