@@ -2,7 +2,7 @@ FROM python:3
 WORKDIR /usr/src/app
 MAINTAINER Maria Jesús Alloza Rodríguez 'mariajesus.allozarodriguez@gmail.com'
 RUN apt-get install git && pip install --root-user-action=ignore --upgrade pip && pip install --root-user-action=ignore django mysqlclient
-RUN git clone https://github.com/Legnakra/django_tutorial.git /usr/src/app&& mkdir static
+RUN git clone https://github.com/Legnakra/django_tutorial.git /usr/src/app && mkdir static
 ADD ./polls.sh /usr/src/app/
 RUN chmod +x /usr/src/app/polls.sh
 ENV ALLOWED_HOSTS='*'
