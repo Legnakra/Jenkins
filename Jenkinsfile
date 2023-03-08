@@ -63,8 +63,8 @@ pipeline {
                 stage ('SSH') {
     steps{
         sshagent(credentials : ['SSH_ROOT']) {
-            sh 'ssh -o StrictHostKeyChecking=no root@mariatec.es wget https://github.com/Legnakra/Jenkins/blob/master/docker-compose.yaml -O docker-compose.yaml'
-            sh 'ssh -o StrictHostKeyChecking=no root@mariatec.es docker-compose up -d --force-recreate'
+            sh 'ssh -o StrictHostKeyChecking=no maria@mariatec.es wget https://github.com/Legnakra/Jenkins/blob/master/docker-compose.yaml -O docker-compose.yaml'
+            sh 'ssh -o StrictHostKeyChecking=no maria@mariatec.es docker-compose up -d --force-recreate'
         }
     }
 }
