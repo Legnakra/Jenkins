@@ -14,12 +14,12 @@ services:
       DJANGO_SUPERUSER_USERNAME: admin
       DJANGO_SUPERUSER_EMAIL: admin@example.org
     ports:
-      - 8086:8006
+      - 8082:82
     depends_on:
-      - db
+      - db_django
   db:
     container_name: db_mariadb
-    image: mariadb
+    image: mariadb:10.5
     restart: always
     environment:
       MARIADB_ROOT_PASSWORD: root
