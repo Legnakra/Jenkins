@@ -36,7 +36,7 @@ pipeline {
             stages {
                 stage('CloneAnfitrion') {
                     steps {
-                        git branch:'main',url:'https://github.com/Legnakra/Jenkins'
+                        git branch:'master',url:'https://github.com/Legnakra/Jenkins'
                     }
                 }
                 stage('BuildImage') {
