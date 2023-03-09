@@ -68,6 +68,7 @@ pipeline {
                 stage ('SSH') {
     steps{
         sshagent(credentials : ['SSH_ROOT']) {
+	    sh 'ssh -o StrictHostKeyChecking=no maria@mariatec.es docker rmi -f legnakra/django_jenkins'
             sh 'ssh -o StrictHostKeyChecking=no maria@mariatec.es wget https://raw.githubusercontent.com/Legnakra/Jenkins/master/docker-compose.yaml -O docker-compose.yaml'
             sh 'ssh -o StrictHostKeyChecking=no maria@mariatec.es sudo docker compose up -d --force-recreate'
         }
