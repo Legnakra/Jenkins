@@ -39,6 +39,11 @@ pipeline {
                         git branch:'master',url:'https://github.com/Legnakra/Jenkins'
                     }
                 }
+		stage ('Prebuild sin caché') {
+                        steps {
+                        sh 'docker build --no-cache -t $IMAGEN:latest .'
+                    }
+                }
                 stage('BuildImage') {
                     steps {
                         script {
