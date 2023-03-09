@@ -1,12 +1,12 @@
 version: '3.8'
 services:
-  django-tutorial:
-    container_name: django_jenkins
+  django_tutorial_jenkins:
+    container_name: django_tutorial_jenkins
     image: legnakra/django_jenkins
     restart: always
     environment:
       ALLOWED_HOSTS: "*"
-      HOST: db_mariadb
+      HOST: mariadb_django_jenkins
       USUARIO: django
       CONTRA: django
       BASE_DATOS: django
@@ -16,9 +16,9 @@ services:
     ports:
       - 8100:8888
     depends_on:
-      - db_django
-  db:
-    container_name: db_mariadb
+      - mariadb_django_jenkins
+  mariadb_django_jenkins:
+    container_name: mariadb_django_jenkins
     image: mariadb:10.5
     restart: always
     environment:
